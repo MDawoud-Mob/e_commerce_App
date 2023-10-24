@@ -1,6 +1,4 @@
-// ignore_for_file: prefer_const_constructors
 
-import 'dart:js';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -31,61 +29,61 @@ class Home extends StatelessWidget {
                 Column(
                   children: [
                     UserAccountsDrawerHeader(
-                        decoration: BoxDecoration(
+                        decoration:const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage('assets/images/beach.jpg'),
                                 fit: BoxFit.cover)),
                         accountName: Text(
                           userr.displayName.toString(),
-                          style: TextStyle(
+                          style:const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
                         accountEmail: Text(
                           userr.email!,
-                          style: TextStyle(
+                          style:const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 16),
                         ),
-                        currentAccountPictureSize: Size.square(90),
-                        currentAccountPicture: ImgUser()),
+                        currentAccountPictureSize:const Size.square(90),
+                        currentAccountPicture:const ImgUser()),
                     ListTile(
-                      leading: Icon(Icons.home),
-                      title: Text('Home'),
+                      leading:const Icon(Icons.home),
+                      title:const Text('Home'),
                       onTap: () {
-                      context.toView(Home());
+                      context.toView(const Home());
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.add_shopping_cart),
-                      title: Text('My Products'),
+                      leading:const Icon(Icons.add_shopping_cart),
+                      title:const Text('My Products'),
                       onTap: () {
-                      context.toView(CheckOut());
+                      context.toView(const CheckOut());
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.help_center),
-                      title: Text('About'),
+                      leading:const Icon(Icons.help_center),
+                      title:const Text('About'),
                       onTap: () {},
                     ),
                     ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text('Profile Page'),
+                      leading:const Icon(Icons.person),
+                      title:const Text('Profile Page'),
                       onTap: () {
-                    context.toView(ProfilePage());
+                    context.toView(const ProfilePage());
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.exit_to_app),
-                      title: Text('Logout'),
+                      leading:const Icon(Icons.exit_to_app),
+                      title:const Text('Logout'),
                       onTap: () {
                         FirebaseAuth.instance.signOut();
-                        context.toView(Signin());
+                        context.toView(const Signin());
                       },
                     ),
                   ],
                 ),
                 Container(
-                  margin: EdgeInsets.only(bottom: 25),
-                  child: Text(
+                  margin:const EdgeInsets.only(bottom: 25),
+                  child:const Text(
                     'Developed by mostafa dawoud @ 2022',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
                   ),
@@ -93,11 +91,11 @@ class Home extends StatelessWidget {
               ]),
         ),
         appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 76, 141, 95),
+            backgroundColor:const Color.fromARGB(255, 76, 141, 95),
             title: Text(
               'Home',
               style: GoogleFonts.kaushanScript(
-                textStyle: TextStyle(
+                textStyle:const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                     fontSize: 30.5),
@@ -110,7 +108,7 @@ class Home extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(14),
           child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 30,
                   childAspectRatio: 3 / 2,
@@ -123,7 +121,7 @@ class Home extends StatelessWidget {
                   },
                   child: GridTile(
                       footer: GridTileBar(
-                          leading: Text(
+                          leading:const Text(
                             '\$ 12.99',
                             style: TextStyle(
                                 fontSize: 17,
@@ -134,15 +132,15 @@ class Home extends StatelessWidget {
                             builder: (context, cart, child) {
                               return IconButton(
                                 iconSize: 27,
-                                color: Color.fromARGB(255, 142, 240, 145),
-                                icon: Icon(Icons.add),
+                                color:const Color.fromARGB(255, 142, 240, 145),
+                                icon:const Icon(Icons.add),
                                 onPressed: () {
                                   cart.add(items[index]);
                                 },
                               );
                             },
                           ),
-                          title: Text('')),
+                          title: const Text('')),
                       child: Stack(children: [
                         Positioned(
                           top: -4,

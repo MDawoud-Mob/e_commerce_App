@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/snackbar.dart';
+import 'package:flutter_application_1/screen/home.dart';
 import 'package:flutter_application_1/screen/sign_in.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
@@ -379,10 +380,7 @@ class _RegisterState extends State<Register> {
                                   imgPath != null) {
                                 await register();
                                 if (!mounted) return;
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const Signin()));
+                                context.toView(const Signin());
                               } else {
                                 showSnachBar(context, 'ERROR');
                               }
@@ -411,11 +409,8 @@ class _RegisterState extends State<Register> {
                             ),
                             TextButton(
                                 onPressed: () {
-                                  Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const Signin()));
+                                  
+                                  context.toView(  const Signin());
                                 },
                                 child: const Text(
                                   'Sign Up',
