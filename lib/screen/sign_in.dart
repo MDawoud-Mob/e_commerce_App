@@ -1,8 +1,7 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/snackbar.dart';
+import 'package:flutter_application_1/firebase/facebook_signin.dart';
 import 'package:flutter_application_1/provider/google_signin.dart';
 import 'package:flutter_application_1/screen/forgot_password.dart';
 import 'package:flutter_application_1/screen/register.dart';
@@ -31,7 +30,7 @@ class _SigninState extends State<Signin> {
       isLoading = true;
     });
     try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text,
         password: passWordController.text,
       );
@@ -164,7 +163,7 @@ class _SigninState extends State<Signin> {
                         )),
               TextButton(
                   onPressed: () {
-              context.toView(const ForgotPassword());
+                    context.toView(const ForgotPassword());
                   },
                   child: const Text(
                     'Forgot Password?',
@@ -182,7 +181,7 @@ class _SigninState extends State<Signin> {
                   ),
                   TextButton(
                       onPressed: () {
-                    context.toView( const Register());
+                        context.toView(const Register());
                       },
                       child: const Text('Sign Up',
                           style: TextStyle(
@@ -212,39 +211,44 @@ class _SigninState extends State<Signin> {
                 ],
               ),
               const SizedBox(
-                height: 30.5,
+                height: 60,
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-               children: [
+              Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                 GestureDetector(
                   onTap: () {
                     googleSignin.googlelogin();
                   },
                   child: Container(
-                      height: 80,
-                      width: 80,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Image(
-                        image: AssetImage(Assets.imagesPct1),
+                      height: 50,
+                      width: 50,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40),
+                          border: Border.all(color: Colors.red, width: 2.5)),
+                      child: const ClipOval(
+                        child: Image(
+                          image: AssetImage(Assets.imagesPct1),
+                          fit: BoxFit.cover,
+                        ),
                       )),
                 ),
-                    GestureDetector(
-                  onTap: () {
-                    googleSignin.googlelogin();
+                GestureDetector(
+                  onTap: ()async {
+                await    signInWithFacebook();
                   },
                   child: Container(
-                      height: 80,
-                      width: 80,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 255, 192, 119),
+                              width: 2.1)),
                       child: const Image(
                         image: AssetImage(Assets.imagesFacebook),
+                        fit: BoxFit.cover,
+                        height: 45,
+                        width: 57,
                       )),
                 ),
-              ])
+              ]),
             ]),
           ),
         ),
