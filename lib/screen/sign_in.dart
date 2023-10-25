@@ -214,7 +214,8 @@ class _SigninState extends State<Signin> {
               const SizedBox(
                 height: 30.5,
               ),
-              Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              Row(mainAxisAlignment: MainAxisAlignment.center,
+               children: [
                 GestureDetector(
                   onTap: () {
                     googleSignin.googlelogin();
@@ -227,6 +228,20 @@ class _SigninState extends State<Signin> {
                       ),
                       child: const Image(
                         image: AssetImage(Assets.imagesPct1),
+                      )),
+                ),
+                    GestureDetector(
+                  onTap: () {
+                    googleSignin.googlelogin();
+                  },
+                  child: Container(
+                      height: 80,
+                      width: 80,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Image(
+                        image: AssetImage(Assets.imagesFacebook),
                       )),
                 ),
               ])
