@@ -214,6 +214,24 @@ class _SigninState extends State<Signin> {
                 height: 60,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                  GestureDetector(
+                  onTap: ()async {
+                await    signInWithFacebook();
+                  },
+                  child: Container(
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                              color: const Color.fromARGB(255, 255, 192, 119),
+                              width: 2.1)),
+                      child: const Image(
+                        image: AssetImage(Assets.imagesFacebook),
+                        fit: BoxFit.cover,
+                        height: 45,
+                        width: 57,
+                      )),
+                ),
+            
                 GestureDetector(
                   onTap: () {
                     googleSignin.googlelogin();
@@ -231,23 +249,7 @@ class _SigninState extends State<Signin> {
                         ),
                       )),
                 ),
-                GestureDetector(
-                  onTap: ()async {
-                await    signInWithFacebook();
-                  },
-                  child: Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                              color: const Color.fromARGB(255, 255, 192, 119),
-                              width: 2.1)),
-                      child: const Image(
-                        image: AssetImage(Assets.imagesFacebook),
-                        fit: BoxFit.cover,
-                        height: 45,
-                        width: 57,
-                      )),
-                ),
+              
               ]),
             ]),
           ),
